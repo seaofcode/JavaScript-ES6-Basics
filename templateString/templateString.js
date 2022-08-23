@@ -25,3 +25,21 @@ result.innerHTML = `
     })
     .join("")}</ul>
 `;
+
+// tagged template literals
+
+const author = "Some Author";
+const statement = "Some Statment";
+
+const quote = highlight`Here is the ${statement} by ${author} and it is true`;
+console.log(quote);
+
+const result2 = document.getElementById("result2");
+result2.innerHTML = quote;
+
+function highlight(text, ...vars){
+    const awesomeText = text.map((item, index)=>{
+        return `${item} <strong class="blue">${vars[index] || ""}</strong>`;
+    });
+    return awesomeText.join('');
+};
